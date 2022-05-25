@@ -10,21 +10,14 @@ module.exports = {
   stats: 'verbose',
   module: {
     rules: [
-      //   {
-      //     test: '/.js$/',
-      //     exclude: /node_modules/,
-      //     loader: 'babel-loader',
-      //   },
       {
-        test: '/.s[ac]ss$/i',
-        use: [
-          // creates 'style' nodes from JS strings
-          'style-loader',
-          // translates CSS into commonJS
-          'css-loader',
-          // compiles Sass to CSS
-          'sass-loader',
-        ],
+        test: '/.js$/',
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
+        test: '/.scss$/',
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },

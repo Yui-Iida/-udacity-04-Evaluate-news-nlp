@@ -1,8 +1,10 @@
+$body-color: red;
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: mediumaquamarine;
+  color: $body-color;
 }
 
 main {
