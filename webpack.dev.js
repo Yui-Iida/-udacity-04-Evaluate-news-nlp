@@ -2,6 +2,19 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// webpack checker
+// const CheckDependenciesWebpackPlugin = require('check-dependencies-webpack-plugin');
+
+// module.exports = {
+//   // Use the plugin.
+//   plugins: [new CheckDependenciesWebpackPlugin()],
+
+//   // Other webpack config...
+// };
+
+//
 
 module.exports = {
   entry: './src/client/index.js',
@@ -18,6 +31,17 @@ module.exports = {
       {
         test: '/.scss$/',
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
       },
     ],
   },
