@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="/styles/header.scss" />
     <link rel="stylesheet" href="/styles/form.scss" />
     <link rel="stylesheet" href="/styles/footer.scss" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header>
-      <div class="">Logo</div>
-      <div class="">Is this article Subjective or Objective?</div>
+      <!-- <div class="">Logo</div> -->
+      <div class="">Evaluate News Article with NLP</div>
     </header>
 
     <main>
       <section>
+        <div class="title">Is this article Subjective or Objective?</div>
+
         <form class="" onsubmit="return handleSubmit(event)">
           <input
             id="name"
@@ -25,9 +33,10 @@
             name="input"
             value=""
             onblur="onBlur()"
-            placeholder="Name"
+            placeholder="URL for news article"
           />
           <input
+            id="submit"
             type="submit"
             name=""
             value="submit"
@@ -38,13 +47,35 @@
       </section>
 
       <section>
-        <strong>Form Results:</strong>
-        <div id="results"></div>
+        <div class="result-title">Form Results:</div>
+        <div id="results" class="results">
+          <div class="result point">Point</div>
+          <div class="result article">Article</div>
+        </div>
       </section>
+
+      <img src="../../img/chat-group.png" class="sticker" />
     </main>
 
     <footer>
-      <p>This is a footer</p>
+      <!-- <p>This is a footer</p> -->
+      &copy; 2022 by Yui Iida<br />
+      Sticker by
+      <a
+        href="https://www.flaticon.com/free-stickers/people"
+        title="people stickers"
+        >People stickers created by Stickers - Flaticon</a
+      >
+      <a
+        href="https://www.flaticon.com/free-stickers/marketing"
+        title="marketing stickers"
+        >Marketing stickers created by Stickers - Flaticon</a
+      >
+      <a
+        href="https://www.flaticon.com/free-stickers/computer"
+        title="computer stickers"
+        >Computer stickers created by Stickers - Flaticon</a
+      >
     </footer>
   </body>
 </html>

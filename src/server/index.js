@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mockAPIResponse = require('./mockAPI.js');
 const fetch = require('node-fetch');
 const cors = require('cors');
+// import img from '../img/chat-group.png';
+// const img = require('../img/chat-group.png');
 
 const dotenv = require('dotenv');
 dotenv.config();
