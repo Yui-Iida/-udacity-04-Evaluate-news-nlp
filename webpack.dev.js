@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // webpack checker
 // const CheckDependenciesWebpackPlugin = require('check-dependencies-webpack-plugin');
@@ -66,6 +67,9 @@ module.exports = {
       // Automatically remove all unused webpack assets on rebuild
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/images', to: 'images' }],
     }),
   ],
 };
