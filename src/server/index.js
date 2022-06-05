@@ -28,6 +28,31 @@ const apiKey = process.env.API_KEY;
 // });
 console.log(`Your API key is ${process.env.API_KEY}`);
 
+// codes from Meaning Cloud
+const formdata = new FormData();
+formdata.append('key', 'YOUR API KEY');
+formdata.append('txt', 'YOUR TEXT HERE');
+formdata.append('lang', 'TEXT LANGUAGE HERE'); // 2-letter code, like en es fr ...
+
+const requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow',
+};
+
+const response = fetch(
+  'https://api.meaningcloud.com/sentiment-2.1',
+  requestOptions
+)
+  .then(response => ({
+    status: response.status,
+    body: response.json(),
+  }))
+  .then(({ status, body }) => console.log(status, body))
+  .catch(error => console.log('error', error));
+
+//////////////////////////////
+
 app.get('/', function (req, res) {
   // res.sendFile('dist/index.html')
   res.sendFile(path.resolve('src/client/views/index.html'));
