@@ -5,6 +5,10 @@ $green: #00c9b8;
 $purple: #36008d;
 $gray: #e3e0e5;
 
+*:focus {
+  outline: none;
+}
+
 form {
   border: 1px solid #545454;
   border-radius: 3px;
@@ -12,10 +16,22 @@ form {
   background-color: white;
   display: block;
 
+  #name {
+    border: none;
+  }
+
   #submit {
     background-color: $yellow;
-    width: 200px;
+    width: 180px;
+    height: 35px;
+    border-radius: 5px;
+
     margin: 10px auto;
+    border: none;
+
+    &:hover {
+      background-color: #efc700;
+    }
   }
 }
 
@@ -46,7 +62,7 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
-  padding: 10px;
+  padding: 20px;
 
   .point {
     background-color: white;
