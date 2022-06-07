@@ -6,6 +6,7 @@ import './styles/header.scss';
 import './styles/form.scss';
 import './styles/footer.scss';
 import img from '../img/chat-group.png';
+import res from 'express/lib/response';
 
 // console.log(checkForName);
 // console.log(handleSubmit);
@@ -16,9 +17,36 @@ console.log('CHANGE!!');
 export { checkForName, handleSubmit };
 
 const url = document.querySelector('#input-url');
+const point = document.querySelector('.point');
+const article = document.querySelector('.article');
+
 const submitBtn = document
   .querySelector('#submit')
   .addEventListener('click', function (e) {
     e.preventDefault();
     console.log(url.value);
+
+    url.value = '';
   });
+
+const postData = async (url = '', data = {}) => {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    return response;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+const updateUI = async data => {
+  const response = await data;
+  console.log(response);
+
+  point.innerHTML = 'Update on index.js';
+  article.innerHTML = 'Update on index.js';
+};
