@@ -26,8 +26,22 @@ const submitBtn = document
     e.preventDefault();
     console.log(url.value);
 
+    getData(url)
+      .then(newData => postData('/', newData))
+      .then(updateUI(data));
+
     url.value = '';
   });
+
+const getData = async url => {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log('error', error);
+  }
+};
 
 const postData = async (url = '', data = {}) => {
   try {
