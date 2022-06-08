@@ -57,7 +57,7 @@ input {
 }
 
 .results {
-  height: 200px;
+  // height: 200px;
   border-radius: 3px;
   background-color: $gray;
   display: grid;
@@ -65,9 +65,13 @@ input {
   column-gap: 20px;
   padding: 20px;
 
+  .title {
+    color: $green;
+  }
+
   .point {
     background-color: white;
-    color: $green;
+
     margin: 10px 0;
     padding: 10px;
 
@@ -76,7 +80,7 @@ input {
 
   .article {
     background-color: white;
-    color: $green;
+
     margin: 10px 0;
     padding: 10px;
     text-align: center;

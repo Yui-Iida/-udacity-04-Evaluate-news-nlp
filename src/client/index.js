@@ -5,32 +5,38 @@ import './styles/base.scss';
 import './styles/header.scss';
 import './styles/form.scss';
 import './styles/footer.scss';
-import img from '../img/chat-group.png';
-import res from 'express/lib/response';
+// import img from '../img/chat-group.png';
+// import res from 'express/lib/response';
 
 // console.log(checkForName);
 // console.log(handleSubmit);
 
-// alert("I EXIST")
-console.log('CHANGE!!');
-
 export { checkForName, handleSubmit };
 
-const url = document.querySelector('#input-url');
+const url = document.querySelector('#input-url').value;
 const point = document.querySelector('.point');
 const article = document.querySelector('.article');
 
 const submitBtn = document
   .querySelector('#submit')
   .addEventListener('click', function (e) {
+    // if (url === '') {
+    //   alert('Please put a correct URL');
+    // } else {
     e.preventDefault();
-    console.log(url.value);
+    console.log(url);
+
+    // show result section
+    const result = document.querySelector('.result-section');
+    result.style.display = 'block';
 
     getData(url)
+      .then(postData(url))
       .then(newData => postData('/', newData))
       .then(updateUI(data));
 
-    url.value = '';
+    url = '';
+    // }
   });
 
 const getData = async url => {
@@ -39,7 +45,7 @@ const getData = async url => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log('error', error);
+    console.log('Error!', error);
   }
 };
 
@@ -53,7 +59,7 @@ const postData = async (url = '', data = {}) => {
     });
     return response;
   } catch (error) {
-    console.log('error', error);
+    console.log('Error!', error);
   }
 };
 
