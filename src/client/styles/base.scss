@@ -1,0 +1,44 @@
+$pink: #ffb3c1;
+$red: #fe5e54;
+$yellow: #fcd200;
+$green: #00c9b8;
+$purple: #36008d;
+$gray: #e3e0e5;
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+  background-color: $pink;
+
+  margin: 0px 50px;
+  // height: 100vh;
+}
+
+header {
+  font-size: 30px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin: 20px auto;
+}
+
+main {
+  flex: 2;
+  background-color: $purple;
+  height: 100px;
+  padding: 0px;
+  padding-bottom: 0;
+  border-radius: 5px;
+}
+
+section {
+  max-width: 800px;
+  margin: 50px auto;
+}
