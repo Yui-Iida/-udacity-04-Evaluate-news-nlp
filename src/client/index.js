@@ -28,7 +28,7 @@ const submitBtn = document
 
     // show result section
     const result = document.querySelector('.result-section');
-    result.style.removeProperty('display');
+    result.style.display = 'block';
 
     getData(url)
       .then(newData => postData('/', newData))
