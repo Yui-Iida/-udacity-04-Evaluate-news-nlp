@@ -5,8 +5,8 @@ import './styles/base.scss';
 import './styles/header.scss';
 import './styles/form.scss';
 import './styles/footer.scss';
-import img from '../img/chat-group.png';
-import res from 'express/lib/response';
+// import img from '../img/chat-group.png';
+// import res from 'express/lib/response';
 
 // console.log(checkForName);
 // console.log(handleSubmit);
@@ -25,6 +25,10 @@ const submitBtn = document
   .addEventListener('click', function (e) {
     e.preventDefault();
     console.log(url.value);
+
+    // show result section
+    const result = document.querySelector('.result-section');
+    result.style.removeProperty('display');
 
     getData(url)
       .then(newData => postData('/', newData))
