@@ -13,7 +13,7 @@ import './styles/footer.scss';
 
 export { checkForName, handleSubmit };
 
-const url = document.querySelector('#input-url').value;
+const url = document.querySelector('#input-url');
 const point = document.querySelector('.point');
 const article = document.querySelector('.article');
 
@@ -24,14 +24,14 @@ const submitBtn = document
     //   alert('Please put a correct URL');
     // } else {
     e.preventDefault();
-    console.log(url);
+    console.log(url.value);
 
     // show result section
     const result = document.querySelector('.result-section');
     result.style.display = 'block';
 
-    getData(url)
-      .then(postData(url))
+    getData(url.value)
+      .then(postData(url.value))
       .then(newData => postData('/', newData))
       .then(updateUI(data));
 
@@ -51,21 +51,21 @@ const getData = async url => {
 
 const postData = async (url = '', data = {}) => {
   try {
-    const response = await fetch(url, {
+    const res = await fetch(url, {
       method: 'POST',
       credentials: 'same-origin',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
     });
-    return response;
+    return res;
   } catch (error) {
     console.log('Error!', error);
   }
 };
 
 const updateUI = async data => {
-  const response = await data;
-  console.log(response);
+  const res = await data;
+  console.log(res);
 
   point.innerHTML = 'Update on index.js';
   article.innerHTML = 'Update on index.js';
