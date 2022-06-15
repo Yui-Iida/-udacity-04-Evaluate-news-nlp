@@ -21,6 +21,7 @@ export { handleSubmit };
 const url = document.querySelector('#input-url');
 const point = document.querySelector('.point');
 const article = document.querySelector('.article');
+const result = document.querySelector('.result-section');
 
 const submitBtn = document
   .querySelector('#submit')
@@ -32,7 +33,7 @@ const submitBtn = document
     console.log(url.value);
 
     // show result section
-    const result = document.querySelector('.result-section');
+
     result.style.display = 'block';
 
     getData(url.value)
@@ -69,9 +70,32 @@ const postData = async (url = '', data = {}) => {
 };
 
 const updateUI = async data => {
-  const res = await data;
-  console.log(res);
+  // const res = await data;
+  // console.log(res);
 
-  point.innerHTML = 'Update on index.js';
-  article.innerHTML = 'Update on index.js';
+  // point.innerHTML = 'Update on index.js';
+  // article.innerHTML = 'Update on index.js';
+
+  const innerHTML = `
+  <div>
+  <p>Article</p>
+  <img src="${data.img} alt="Picture of the news">
+  <p>${data.headline}</P>
+  <div>
+  <p>${data.writer}</p>
+  <p>${data.date}</p>
+  <div>
+  <p>${data.text}</p>
+  <button>Button to link</button>
+  </div>
+
+  <div>
+  <p>Point</p>
+  <p>Polarity: ${data.polarity}</p>
+  <p>Confidence: ${data.polarityConfidence}</p>
+  <p>Subjectivity: ${data.subjectivity}</p>
+  <p>Confidence: ${data.subjectivityConfidence}</p>
+  </div>  `;
+
+  result.innerHTML = innerHTML;
 };
