@@ -67,15 +67,15 @@ app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });
 
-app.get('/test', function (req, res) {
-  res.send(mockAPIResponse);
-});
+// app.get('/test', function (req, res) {
+//   res.send(mockAPIResponse);
+// });
 
 app.get('/', (req, res, next) => {
   res.set({ 'Access-Control-Allow-Origin': '*' });
 });
 
-app.post('/', callAPI);
+app.post('/add', callAPI);
 
 //// code by me
 
