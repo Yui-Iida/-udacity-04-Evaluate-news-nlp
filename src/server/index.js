@@ -75,16 +75,17 @@ app.get('/', (req, res, next) => {
   res.set({ 'Access-Control-Allow-Origin': '*' });
 });
 
-app.post('/add', callAPI);
+// app.post('/add', callAPI);9
 
 //// code by me
 
-// app.post('/', async (req, res) => {
-//   const body = await req.body;
-//   data = body;
-//   console.log(data);
-//   res.send(data);
-// });
+app.post('/add-url', async (req, res) => {
+  // const body = await req.body;
+  // data = body;
+  // console.log(data);
+  // res.send(data);
+  const { loaclURL } = await req.body;
+});
 
 const callAPI = async (req, res) => {
   const meaningCloudUrl = baseUrl + apiKey + req.body;

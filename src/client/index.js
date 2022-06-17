@@ -11,4 +11,12 @@ import './styles/footer.scss';
 // console.log(checkForName);
 // console.log(handleSubmit);
 
+window.addEventListener('DOMContentLoaded', () => {
+  const submitBtn = document.querySelector('#submit');
+
+  submitBtn.addEventListener('click', () => {
+    handleSubmit();
+  });
+});
+
 export { checkForName, handleSubmit };
