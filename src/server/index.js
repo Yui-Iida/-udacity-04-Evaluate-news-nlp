@@ -12,6 +12,9 @@ dotenv.config();
 
 const app = express();
 
+let projectData = {};
+let articleUrl = '';
+
 app.use(express.static('dist'));
 app.use(express.json());
 app.use(cors());
@@ -19,7 +22,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 console.log(__dirname);
-console.log(dotenv);
 
 // call API
 const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?';
@@ -30,11 +32,11 @@ const apiKey = process.env.API_KEY;
 // });
 // console.log(`Your API key is ${process.env.API_KEY}`);
 
-// codes from Meaning Cloud //////
-const formdata = new FormData();
-formdata.append('key', 'YOUR API KEY');
-formdata.append('txt', 'YOUR TEXT HERE');
-formdata.append('lang', 'TEXT LANGUAGE HERE'); // 2-letter code, like en es fr ...
+// // codes from Meaning Cloud //////
+// const formdata = new FormData();
+// formdata.append('key', 'YOUR API KEY');
+// formdata.append('txt', 'YOUR TEXT HERE');
+// formdata.append('lang', 'TEXT LANGUAGE HERE'); // 2-letter code, like en es fr ...
 
 const requestOptions = {
   method: 'POST',
