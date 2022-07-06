@@ -52,8 +52,14 @@ module.exports = {
           },
         ],
       },
+      // {
+      //   compilerOptions: {
+      //     types: ['node'],
+      //   },
+      // },
     ],
   },
+
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/client/views/index.html',

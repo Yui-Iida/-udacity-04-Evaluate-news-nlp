@@ -16,7 +16,7 @@ import { checkForName } from './nameChecker';
 //     });
 // }
 
-const url = document.querySelector('#input-url');
+// const url = document.querySelector('#input-url').value;
 // const point = document.querySelector('.point');
 // const article = document.querySelector('.article');
 const result = document.querySelector('.result-section');
@@ -72,6 +72,7 @@ const postData = async (url = '', data = {}) => {
 const handleSubmit = async event => {
   event.preventDefault();
 
+  let url = document.querySelector('#input-url').value;
   if (checkURL(url)) {
     postData('http://localhost:8080/add-url', { url })
       .then(data => {
