@@ -64,6 +64,10 @@
 
 // 6. より
 
-function name() {
-  return true;
+export function checkURL(input) {
+  const urlRegex = /(^http[s]?:\/{2})|(^www)|(^\/{1,2})/gim;
+  const url = new RegExp(urlRegex);
+  return url.test(input);
 }
+
+export default checkURL;

@@ -1,4 +1,5 @@
 import { checkForName } from './nameChecker';
+import { checkURL } from './checkURL';
 
 // function handleSubmit(event) {
 //   event.preventDefault();
@@ -43,13 +44,30 @@ const result = document.querySelector('.result-section');
 //     // }
 //   });
 
-const getData = async url => {
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log('Error!', error);
+// const getData = async url => {
+//   try {
+//     const res = await fetch(url);
+//     const data = await res.json();
+//     return data;
+//   } catch (error) {
+//     console.log('Error!', error);
+//   }
+// };
+
+const handleSubmit = async event => {
+  event.preventDefault();
+
+  let url = document.querySelector('#input-url').value;
+  if (checkURL(url)) {
+    postData('http://localhost:8080/add-url', { url })
+      .then(data => {
+        document.querySelector(
+          '#polarity'
+        ).innerHTML = `Polarity: ${data.score_tag}`;
+      })
+      .then(updateUI());
+  } else {
+    alert('Please try with a valid URL.');
   }
 };
 
@@ -69,24 +87,7 @@ const postData = async (url = '', data = {}) => {
   }
 };
 
-const handleSubmit = async event => {
-  event.preventDefault();
-
-  let url = document.querySelector('#input-url').value;
-  if (checkURL(url)) {
-    postData('http://localhost:8080/add-url', { url })
-      .then(data => {
-        document.querySelector(
-          '#polarity'
-        ).innerHTML = `Polarity: ${data.score_tag}`;
-      })
-      .then(updateUI());
-  } else {
-    alert('Please try with a valid URL.');
-  }
-};
-
-export default handleSubmit;
+// export default handleSubmit;
 
 const updateUI = async data => {
   const innerHTML = `
